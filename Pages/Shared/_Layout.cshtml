@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Big Mamma</title>
+
+    @* vanilla bootstrap har problemer med footer *@
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> 
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BigMammaWebsite.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/bootstrap.css"/>
+    <link rel="icon" href="~/img/Logo-med-hvid-baggrund.png">
+</head>
+
+<body style="min-height:100vh;display:flex;flex-direction:column;">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index"><img src="/img/Logo-med-hvid-baggrund.png" style="width:70px;height:70px;">&nbsp&nbsp&nbspBigMamma</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                       
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/MenuKort/Index">Menukort</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Events/Index">Events</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @* removed "footer" added "p-5 fs-4" for padding and fontsize *@
+    @* footer fucker med content sørger for den er i bunden men overlapper content *@
+  @*   footer uses absolute position!!!!!!!!!!!! *@
+  @* auto loads correctly AFTER content
+  0vh loads to the bottom of the page but overlaps *@
+    <footer class="border-top footer text-muted text-break" style="background-image:url(img/woods.jpg);position:relative;margin-top:auto;">
+        <div class="container text-break" style="color:white;">
+            <p class ="text-break">Åbningstider: Mandag lukket | Tirsdag- fredag 11-21 | Lørdag-søndag 12-21</p>
+            &copy; 2023 - BigMammaWebsite - <a asp-area="" asp-page="/Privacy" style="color:white;">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

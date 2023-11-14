@@ -1,0 +1,63 @@
+﻿@page
+@model BigMammaWebsite.Pages.Events.IndexModel
+@{
+    ViewData["Title"] = "Events";
+}
+<h1>List of events</h1>
+<p>
+    <a asp-page="CreateEvent">Create new</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Place
+            </th>
+            <th>
+                DateTime
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.events)
+        {
+            <tr>
+                <td>
+                    @item.ID
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    @item.City
+                </td>
+                <td>
+                    @item.DateTime
+                </td>
+                <td>
+                    @item.Price
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@foreach (var item in Model.events)
+{
+    <p>@item.ID @item.Name @item.Description @item.City @item.DateTime @item.Price</p>
+}

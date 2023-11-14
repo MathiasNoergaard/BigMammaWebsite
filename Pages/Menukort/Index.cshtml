@@ -1,0 +1,70 @@
+﻿@page
+@model MenuKortModel
+@{
+    // ViewData["Title"] = "Menukort";
+    ViewData["Title"] = @Model.Message;
+}
+<div id="top" @* class="container" style="margin-bottom:100px;" *@> @* gaffetape *@
+    <div class="text-center d-block d-sm-none">
+        <a href="#pizza" class="nav-link text-dark text-center badge rounded-pill bg-success fs-3">Gå til pizza</a>
+        <a href="#speciali" class="nav-link text-dark text-center badge rounded-pill bg-success fs-3">Gå til special</a>
+        <a href="#brød" class="nav-link text-dark text-center badge rounded-pill bg-success fs-3">Gå til brød</a>
+    </div>
+
+    @* if(height > 100vh) do something *@
+    
+        @* DONT USE ABSOLUTE POSITION *@
+    <div class="col-12 start-50" id="menukort">
+            <div class="row">
+                <h1 class="text-center">Big Mamma menukort</h1>
+            </div>
+        @* center the columns and add a margin that disappears when screen is wider than "sm" *@
+        <div class="row justify-content-center mx-5 mx-sm-0"> 
+
+
+            @* leger med variable størrelse
+            hvis skærmen er mindre end "sm" så forsvinder columns og de stakkes ovenpå hinanden *@
+            @* https://stackoverflow.com/questions/26946329/boostrap-grid-two-column-layout-to-drop-under-each-other-on-small-device *@
+            <div class="col-sm-4 col-lg-3  " @* style="background-color:red;" *@>
+                <h2 id="pizza">Pizza</h2>
+                    <ol>
+                    @foreach (var item in Model.events)
+                    {
+                        <li>
+                            <h3>@item.Name - @item.Price</h3>
+                            <p>@item.Topping</p>
+                            <p><a asp-page="EditPizza" asp-route-id="@item.ID">Edit</a></p>
+                        </li>
+                    }
+                    </ol>
+                </div>
+            <div class="col-sm-4 col-lg-3" @* style="background-color:green;" *@>
+                <h2 id="speciali">Pizza Speciali</h2>
+                    <ol  start="50">
+                        <li>
+                            <h3>Bresaola</h3>
+                            <p>Tomat, ost, Bresaola (lufttørret oksekød), rucola, Grand Padano og pesto</p>
+                        </li>
+                    </ol>
+                </div>
+                
+            <div class="col-sm-4 col-lg-3" @* style="background-color:blue;" *@>
+                    <h2 id="brød">Brød</h2>
+                    <ol start="50">
+                        <li>
+                            <h3>Rugbrød</h3>
+                            <p>Mel & kerner</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+    @* "d-flex" is required for the link to move to center or right *@
+    @* https://getbootstrap.com/docs/4.0/utilities/flex/#justify-content *@
+    @* "mt-3" to have some margin above the button *@
+    <div class="d-flex justify-content-between justify-content-sm-center mt-3">
+        <a asp-page="CreatePizza" class="nav-link text-dark badge rounded-pill bg-success fs-3">Create new</a>
+             <a href="#top" class="nav-link text-dark badge rounded-pill bg-success fs-3">Gå til top</a>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@page
+@model BigMammaWebsite.Pages.Menukort.EditPizzaModel
+@{
+}
+<div class="form-group">
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="@Model.currentPizza.ID" class="control-label"></label>
+            <input asp-for="@Model.currentPizza.ID" class="form-control" />
+            <span asp-validation-for="@Model.currentPizza.ID" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.currentPizza.Name" class="control-label"></label>
+            <input asp-for="@Model.currentPizza.Name" class="form-control" />
+            <span asp-validation-for="@Model.currentPizza.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.currentPizza.Topping" class="control-label"></label>
+            <input asp-for="@Model.currentPizza.Topping" class="form-control" />
+            <span asp-validation-for="@Model.currentPizza.Topping" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.currentPizza.Price" class="control-label"></label>
+            <input asp-for="@Model.currentPizza.Price" class="form-control" />
+            <span asp-validation-for="@Model.currentPizza.Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
