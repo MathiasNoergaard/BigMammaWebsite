@@ -41,5 +41,10 @@ namespace BigMammaWebsite.Service
             if (pizza == null) return;
             _pizzaDictionary[pizza.ID] = pizza;
         }
+
+        public void DeletePizza(Pizza pizza)
+        {
+
+        }
     }
 }
