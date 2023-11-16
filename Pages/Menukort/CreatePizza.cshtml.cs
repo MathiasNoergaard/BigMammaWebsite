@@ -7,10 +7,9 @@ namespace BigMammaWebsite.Pages.Menukort
 {
     public class CreatePizzaModel : PageModel
     {
-        private PizzaService _pizzaService;
-
         [BindProperty]
-        public Pizza _event { get; set; }
+        public Pizza currentPizza { get; set; }
+        private PizzaService _pizzaService;
 
         public CreatePizzaModel(PizzaService pizzaService)
         {
@@ -25,7 +24,12 @@ namespace BigMammaWebsite.Pages.Menukort
         {
             if (!ModelState.IsValid)
                 return Page();
-            _pizzaService.AddPizza(_event);
+            _pizzaService.AddPizza(currentPizza);
+            return RedirectToPage("Index");
+        }
+
+        public IActionResult OnPostCancel()
+        {
             return RedirectToPage("Index");
         }
     }

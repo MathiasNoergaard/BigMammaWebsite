@@ -29,5 +29,9 @@ namespace BigMammaWebsite.Pages.Menukort
             _pizzaService.UpdatePizza(currentPizza);
             return RedirectToPage("Index");
         }
+        public IActionResult OnPostCancel()
+        {
+            return RedirectToPage("Index");
+        }
     }
 }

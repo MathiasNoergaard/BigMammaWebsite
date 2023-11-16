@@ -8,22 +8,31 @@
     <div class="col-md-4">
         <form method="post">
              <div class="form-group">
-                <label asp-for="@Model._event.Name" class="control-label"></label>
-                <input asp-for="@Model._event.Name" class="form-control" />
-                <span asp-validation-for="@Model._event.Name" class="text-danger"></span>
+                <label asp-for="@Model.currentPizza.Name" class="control-label"></label>
+                <input asp-for="@Model.currentPizza.Name" class="form-control" />
+                <span asp-validation-for="@Model.currentPizza.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model._event.Topping" class="control-label"></label>
-                <input asp-for="@Model._event.Topping" class="form-control" />
-                <span asp-validation-for="@Model._event.Topping" class="text-danger"></span>
+                <label asp-for="@Model.currentPizza.Topping" class="control-label"></label>
+                <input asp-for="@Model.currentPizza.Topping" class="form-control" />
+                <span asp-validation-for="@Model.currentPizza.Topping" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model._event.Price" class="control-label"></label>
-                <input asp-for="@Model._event.Price" class="form-control" />
-                <span asp-validation-for="@Model._event.Price" class="text-danger"></span>
+                <label asp-for="@Model.currentPizza.Price" class="control-label"></label>
+                <input asp-for="@Model.currentPizza.Price" class="form-control" />
+                <span asp-validation-for="@Model.currentPizza.Price" class="text-danger"></span>
             </div>
+            @* <div class="form-group">
+                <label asp-for="@Model.currentPizza.Price" class="control-label"></label>
+                <select asp-for="@Model.currentPizza.TestTopping" asp-items="Html.GetEnumSelectList<Models.Topping.Toppings>()">
+                    <option value="">Please select</option>
+                </select>
+                <span asp-validation-for="@Model.currentPizza.Price" class="text-danger"></span>
+            </div> *@
+            
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Cancel" asp-page-handler="Cancel" class="btn btn-primary" />
             </div> 
         </form>
     </div>
