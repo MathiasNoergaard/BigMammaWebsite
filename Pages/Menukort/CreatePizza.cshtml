@@ -22,21 +22,38 @@
                 <input asp-for="@Model.currentPizza.Price" class="form-control" />
                 <span asp-validation-for="@Model.currentPizza.Price" class="text-danger"></span>
             </div>
-            @* <div class="form-group">
-                <label asp-for="@Model.currentPizza.Price" class="control-label"></label>
-                <select asp-for="@Model.currentPizza.TestTopping" asp-items="Html.GetEnumSelectList<Models.Topping.Toppings>()">
-                    <option value="">Please select</option>
-                </select>
-                <span asp-validation-for="@Model.currentPizza.Price" class="text-danger"></span>
-            </div> *@
-            
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary btn btn-success" />
-                <input type="submit" value="Cancel" asp-page-handler="Cancel" class="btn btn-primary btn btn-danger" />
+                <label asp-for="@Model.topping" class="control-label"></label>
+                <div class="input-group">
+                    <select class="form-select" asp-for="@Model.topping" asp-items="Html.GetEnumSelectList<Models.Topping.Toppings>()">
+                        @* <option value="">Please select</option> *@
+                    </select>
+                    <input type="submit" value="Add topping" asp-page-handler="AddTopping" class="btn btn-success" />
+                </div>
+                <span asp-validation-for="@Model.topping" class="text-danger"></span>
+            </div>
+            @if (@Model.toppingList.Count != 0)
+            {
+                <div class="form-group">
+                    <label asp-for="@Model.toppingList" class="control-label"></label>
+                    @for (int i = 0; i != @Model.toppingList.Count; i++)
+                    {
+                        <div class="input-group">
+                            <input asp-for="@Model.toppingList[@i]" class="form-control" />
+                            @* <p>@Model.toppingList[i]</p> *@
+                            <input type="submit" value="Remove topping" asp-page-handler="RemoveTopping" asp-route-id="@i" class="btn btn-danger" />
+                        </div>
+                    }
+                    <p>Please note "Remove topping" doesn't work properly refer to this page' backend model (problem: backend list is not persistent)</p>
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+                <input type="submit" value="Cancel" asp-page-handler="Cancel" class="btn btn-danger" />
             </div> 
         </form>
     </div>
 </div>
-<div>
+@* <div>
     <a asp-page="Index">Back to List</a>
-</div>
+</div> *@
