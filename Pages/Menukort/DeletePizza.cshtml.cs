@@ -25,5 +25,9 @@ namespace BigMammaWebsite.Pages.Menukort
             _pizzaService.DeletePizza(id);
             return RedirectToPage("Index");
         }
+        public IActionResult OnPostCancel()
+        {
+            return RedirectToPage("Index");
+        }
     }
 }
