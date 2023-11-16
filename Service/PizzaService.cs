@@ -42,9 +42,10 @@ namespace BigMammaWebsite.Service
             _pizzaDictionary[pizza.ID] = pizza;
         }
 
-        public void DeletePizza(Pizza pizza)
+        public void DeletePizza(int id)
         {
-
+            if (id == null) return;
+            _pizzaDictionary.Remove(id);
         }
     }
 }

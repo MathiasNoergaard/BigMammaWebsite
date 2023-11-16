@@ -33,7 +33,8 @@
                         <li>
                             <h3>@item.Name - @item.Price</h3>
                             <p>@item.Topping</p>
-                            <p><a asp-page="EditPizza" asp-route-id="@item.ID">Edit</a></p>
+                            <p><a asp-page="EditPizza" asp-route-id="@item.ID">Edit</a>
+                            <a asp-page="DeletePizza" asp-route-id="@item.ID">Delete</a></p>
                         </li>
                     }
                     </ol>
