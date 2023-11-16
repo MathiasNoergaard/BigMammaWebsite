@@ -1,0 +1,21 @@
+﻿@page
+@model BigMammaWebsite.Pages.TestMapModel
+@{
+}
+
+@* <h1>Map an Address</h1>
+<form method="post">
+    <fieldset>
+        <div>
+            <label for="address">Address:</label>
+            <input style="width: 300px" type="text" name="address" value="@Request["address"]" />
+            <input type="submit" value="Map It!" />
+        </div>
+    </fieldset>
+</form>
+@if (IsPost)
+{
+    @Maps.GetGoogleHtml(Request.Form["address"],
+            width: "400",
+            height: "400")
+} *@
