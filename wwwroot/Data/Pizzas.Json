@@ -1,0 +1,50 @@
+[
+  {
+    "ID": 1,
+    "Name": "Calzone",
+    "Topping": "Indbagt pizza med tomat, ost \u0026 skinke",
+    "Price": 0
+  },
+  {
+    "ID": 2,
+    "Name": "Calzone",
+    "Topping": "Indbagt pizza med tomat, ost \u0026 skinke",
+    "Price": 0
+  },
+  {
+    "ID": 3,
+    "Name": "Calzone",
+    "Topping": "Indbagt pizza med tomat, ost \u0026 skinke",
+    "Price": 0
+  },
+  {
+    "ID": 4,
+    "Name": "Calzone",
+    "Topping": "Indbagt pizza med tomat, ost \u0026 skinke",
+    "Price": 0
+  },
+  {
+    "ID": 5,
+    "Name": "Quattro Stagioni",
+    "Topping": "tomat, ost, skinke champignon, rejer \u0026 paprika",
+    "Price": 0
+  },
+  {
+    "ID": 6,
+    "Name": "Marinara",
+    "Topping": "Tomat, ost, rejer, muslinger \u0026 hvidl\u00F8g",
+    "Price": 0
+  },
+  {
+    "ID": 7,
+    "Name": "Vegetariana",
+    "Topping": "Tomat, ost \u0026 gr\u00F8nsager",
+    "Price": 0
+  },
+  {
+    "ID": 8,
+    "Name": "John",
+    "Topping": "Topping",
+    "Price": 19
+  }
+]

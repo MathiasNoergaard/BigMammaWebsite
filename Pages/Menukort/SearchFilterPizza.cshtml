@@ -1,0 +1,48 @@
+﻿@page
+@model BigMammaWebsite.Pages.Menukort.SearchFilterPizzaModel
+@{
+}
+<p>Search pizza</p>
+<form method="post">
+<div class="form-group">
+    <label asp-for="@Model.ToppingFilter" class="control-label"></label>
+    <input asp-for="@Model.ToppingFilter" class="form-control" />
+    <span asp-validation-for="@Model.ToppingFilter" class="text-danger"></span>
+</div>
+<div class="form-group">
+        <input type="submit" value="Filtrer" asp-page-handler="Filter" class="btn btn-danger" />
+    <input type="submit" value="Reset Filter" asp-page-handler="Reset" class="btn btn-primary" />
+</div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Topping
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.events)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Topping
+                </td>
+                <td>
+                    @item.Price
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

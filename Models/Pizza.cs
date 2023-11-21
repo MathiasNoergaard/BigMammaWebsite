@@ -31,5 +31,10 @@ namespace BigMammaWebsite.Models
             Topping = topping;
             Price = price;
         }
+
+        public override string ToString()
+        {
+            return $"{{{nameof(ID)}={ID.ToString()}, {nameof(Name)}={Name}, {nameof(Topping)}={Topping}, {nameof(Price)}={Price.ToString()}}}";
+        }
     }
 }

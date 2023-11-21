@@ -8,6 +8,7 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddSingleton<ItemService, ItemService>();
 builder.Services.AddSingleton<PizzaService, PizzaService>();
+builder.Services.AddSingleton<JsonFilePizzaService, JsonFilePizzaService>();
 
 
 var app = builder.Build();

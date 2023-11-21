@@ -16,8 +16,34 @@
         @* DONT USE ABSOLUTE POSITION *@
     <div class="col-12 start-50" id="menukort">
             <div class="row">
-                <h1 class="text-center">Big Mamma menukort</h1>
+            <h1 class="text-center"><a asp-page="SearchFilterPizza">Big Mamma menukort</a></h1>
             </div>
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="@Model.NameFilter" class="control-label"></label>
+                <input asp-for="@Model.NameFilter" class="form-control" />
+                <span asp-validation-for="@Model.NameFilter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.ToppingFilter" class="control-label"></label>
+                <input asp-for="@Model.ToppingFilter" class="form-control" />
+                <span asp-validation-for="@Model.ToppingFilter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.PriceFilterMin" class="control-label"></label>
+                <input asp-for="@Model.PriceFilterMin" class="form-control" />
+                <span asp-validation-for="@Model.PriceFilterMin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.PriceFilterMax" class="control-label"></label>
+                <input asp-for="@Model.PriceFilterMax" class="form-control" />
+                <span asp-validation-for="@Model.PriceFilterMax" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Filtrer" asp-page-handler="Filter" class="btn btn-danger" />
+                <input type="submit" value="Reset Filter" asp-page-handler="Reset" class="btn btn-primary" />
+            </div>
+        </form>
         @* center the columns and add a margin that disappears when screen is wider than "sm" *@
         <div class="row justify-content-center mx-5 mx-sm-0"> 
 
@@ -33,8 +59,10 @@
                         <li>
                             <h3>@item.Name - @item.Price</h3>
                             <p>@item.Topping</p>
-                            <p><a asp-page="EditPizza" asp-route-id="@item.ID">Edit</a>
-                            <a asp-page="DeletePizza" asp-route-id="@item.ID">Delete</a></p>
+                            <p>
+                                <a asp-page="EditPizza" asp-route-id="@item.ID"><i class="fa fa-edit"></i></a>
+                                <a asp-page="DeletePizza" asp-route-id="@item.ID"><i class="fa fa-trash"></i></a>
+                            </p>
                         </li>
                     }
                     </ol>
@@ -65,7 +93,7 @@
     @* https://getbootstrap.com/docs/4.0/utilities/flex/#justify-content *@
     @* "mt-3" to have some margin above the button *@
     <div class="d-flex justify-content-between justify-content-sm-center mt-3">
-        <a asp-page="CreatePizza" class="nav-link text-dark badge rounded-pill bg-success fs-3">Create new</a>
-             <a href="#top" class="nav-link text-dark badge rounded-pill bg-success fs-3">Gå til top</a>
+        <a asp-page="CreatePizza" class="nav-link text-dark badge rounded-pill bg-success fs-3"><i class="fa fa-plus"></i> Create new pizza</a>
+        <a href="#top" class="nav-link text-dark badge rounded-pill bg-success fs-3">Gå til top <i class="fa fa-arrow-up"></i></a>
     </div>
 </div>

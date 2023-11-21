@@ -19,6 +19,7 @@ namespace BigMammaWebsite.Pages.Menukort
         public IActionResult OnGet(int id)
         {
             currentPizza = _pizzaService.GetPizza(id);
+            Console.WriteLine(currentPizza);
             return Page();
         }
 

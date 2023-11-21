@@ -6,13 +6,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BigMammaWebsite.Pages.Menukort
 {
-    public class MenuKortModel : PageModel
+    public class SearchFilterPizzaModel : PageModel
     {
-        public string Message;
-        private PizzaService _pizzaService;
         public List<Pizza> events { get; set; }
+        private PizzaService _pizzaService;
+        [Required]
+        
+        [BindProperty]
+        public string ToppingFilter { get; set; }
 
-        public MenuKortModel(PizzaService pizzaService) //Dependency Injection
+        public SearchFilterPizzaModel(PizzaService pizzaService) //Dependency Injection
         {
             _pizzaService = pizzaService;
         }
@@ -22,26 +25,13 @@ namespace BigMammaWebsite.Pages.Menukort
             events = _pizzaService.GetItems(); ;
         }
 
-        [BindProperty]
-        public string ToppingFilter { get; set; }
-
-        [BindProperty]
-        public string NameFilter { get; set; }
-
-        [BindProperty]
-        public int PriceFilterMin { get; set; }
-
-        [BindProperty]
-        public int PriceFilterMax { get; set; }
-
         public IActionResult OnPostFilter()
         {
             Console.WriteLine("orks");
-            if (String.IsNullOrEmpty(ToppingFilter))
+            if(String.IsNullOrEmpty(ToppingFilter))
             {
                 events = _pizzaService.GetItems();
-            }
-            else
+            } else
             {
                 events = _pizzaService.FilterTopping(ToppingFilter);
             }
