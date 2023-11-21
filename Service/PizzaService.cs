@@ -64,7 +64,6 @@ namespace BigMammaWebsite.Service
         public void UpdatePizza(Pizza pizza)
         {
             if (pizza == null) return;
-            Console.WriteLine(pizza);
             foreach (Pizza _pizza in _pizzaList)
             {
                 if (_pizza.ID == pizza.ID)

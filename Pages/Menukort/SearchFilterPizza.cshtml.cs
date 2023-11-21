@@ -27,7 +27,6 @@ namespace BigMammaWebsite.Pages.Menukort
 
         public IActionResult OnPostFilter()
         {
-            Console.WriteLine("orks");
             if(String.IsNullOrEmpty(ToppingFilter))
             {
                 events = _pizzaService.GetItems();
