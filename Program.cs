@@ -9,7 +9,10 @@ builder.Services.AddRazorPages();
 builder.Services.AddSingleton<ItemService, ItemService>();
 builder.Services.AddSingleton<PizzaService, PizzaService>();
 builder.Services.AddSingleton<JsonFilePizzaService, JsonFilePizzaService>();
-
+builder.Services.AddSingleton<UserService, UserService>();
+builder.Services.AddSingleton<JsonFileUserService, JsonFileUserService>();
+builder.Services.AddSingleton<OrderService, OrderService>();
+builder.Services.AddSingleton<JsonFileOrderService, JsonFileOrderService>();
 
 var app = builder.Build();
 

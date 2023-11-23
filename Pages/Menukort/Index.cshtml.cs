@@ -10,7 +10,7 @@ namespace BigMammaWebsite.Pages.Menukort
     {
         public string Message;
         private PizzaService _pizzaService;
-        public List<Pizza> events { get; set; }
+        public List<Pizza> pizzas { get; set; }
 
         public MenuKortModel(PizzaService pizzaService) //Dependency Injection
         {
@@ -19,7 +19,7 @@ namespace BigMammaWebsite.Pages.Menukort
 
         public void OnGet()
         {
-            events = _pizzaService.GetItems(); ;
+            pizzas = _pizzaService.GetItems(); ;
         }
 
         [BindProperty]
@@ -36,14 +36,15 @@ namespace BigMammaWebsite.Pages.Menukort
 
         public IActionResult OnPostFilter()
         {
+            pizzas.ElementAt(0).GetHashCode();
             Console.WriteLine("orks");
             if (String.IsNullOrEmpty(ToppingFilter))
             {
-                events = _pizzaService.GetItems();
+                pizzas = _pizzaService.GetItems();
             }
             else
             {
-                events = _pizzaService.FilterTopping(ToppingFilter);
+                pizzas = _pizzaService.FilterTopping(ToppingFilter);
             }
             return Page();
         }
@@ -52,7 +53,7 @@ namespace BigMammaWebsite.Pages.Menukort
         {
             ToppingFilter = string.Empty;
             ModelState.Clear();
-            events = _pizzaService.GetItems();
+            pizzas = _pizzaService.GetItems();
             return Page();
         }
     }

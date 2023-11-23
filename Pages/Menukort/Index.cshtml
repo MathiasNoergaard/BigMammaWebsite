@@ -54,16 +54,21 @@
             <div class="col-sm-4 col-lg-3  " @* style="background-color:red;" *@>
                 <h2 id="pizza">Pizza</h2>
                     <ol>
-                    @foreach (var item in Model.events)
+                    @foreach (var item in Model.pizzas)
                     {
-                        <li>
+                        if(item.ID == Pages.Sign_up_in_out.SignInModel.sessionID) {
+                            <p>@item.GetHashCode()</p>       
+                            <li>
                             <h3>@item.Name - @item.Price</h3>
                             <p>@item.Topping</p>
                             <p>
+                                <a asp-page="AddPizzaToOrderline" asp-route-id="@item.ID"><i class="fa fa-plus"></i></a>
                                 <a asp-page="EditPizza" asp-route-id="@item.ID"><i class="fa fa-edit"></i></a>
                                 <a asp-page="DeletePizza" asp-route-id="@item.ID"><i class="fa fa-trash"></i></a>
                             </p>
                         </li>
+                        }
+                        
                     }
                     </ol>
                 </div>

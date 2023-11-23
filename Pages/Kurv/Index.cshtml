@@ -1,0 +1,56 @@
+﻿@page
+@model BigMammaWebsite.Pages.Kurv.IndexModel
+@{
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Topping
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.order != null)
+        {
+            @if (Model.order.orderPizzas != null)
+            {
+                @foreach (var item in Model.order.orderPizzas)
+                {
+                    <tr>
+                        <td>
+                            @item.PizzaType.ID
+                        </td>
+                        <td>
+                            @item.PizzaType.Name
+                        </td>
+                        <td>
+                            @item.PizzaType.Topping
+                        </td>
+                        <td>
+                            @item.Amount
+                        </td>
+                        <td>
+                            @item.PizzaType.Price * item.Amount
+                        </td>
+                    </tr>
+                }
+
+            }
+        }
+        
+    </tbody>
+</table>

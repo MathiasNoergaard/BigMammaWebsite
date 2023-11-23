@@ -14,6 +14,13 @@
     <link rel="icon" href="~/img/Logo-med-hvid-baggrund.png">
 </head>
 
+@{
+    void LogOut()
+    {
+        Pages.Sign_up_in_out.SignInModel.sessionID = -1;
+    }
+}
+
 <body style="min-height:100vh;display:flex;flex-direction:column;">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -38,6 +45,28 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/TestMap">GoogleMaps experimentation</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Kurv/Index"><i class="fa fa-basket-shopping"></i>Kurv</a>
+                        </li>
+                        @if (Pages.Sign_up_in_out.SignInModel.sessionID==-1)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Sign_up_in_out/Index">Sign up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Sign_up_in_out/SignIn">Sign in</a>
+                            </li>
+                        } else
+                        {
+                            <li class="nav-item">
+                                <a><i class="fa fa-user"></i> @Service.UserService.GetUsernameByID(Pages.Sign_up_in_out.SignInModel.sessionID)</a>
+                                    @* <p>Password</p>
+                                <a class="nav-link text-dark bnt-danger" asp-area="" asp-page="/Sign_up_in_out/SignIn">Sign out</a> *@
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark btn-danger" asp-area="" asp-page="/Sign_up_in_out/LogOut">Sign out</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -45,6 +74,7 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            
             @RenderBody()
         </main>
     </div>
